@@ -42,12 +42,7 @@ lpSum([x[(day, ab)]*(arr_rates_age[ab]*exp_pat_arr[day]) \
        for days_used in vent_usage_days if d + days_used > day])
 #<= vent_curr_and_back[day], f"Vent supp day {day}"
 
-import os
-cwd = os.getcwd()
-solverdir = 'Cbc-2.3.2-mac-osx-x86_64-gcc4.3.3-parallel\\bin\\cbc.exe'
-solverdir = os.path.join(cwd, solverdir)
-solver = COIN_CMD(path=solverdir)
-model.solve(solver)
+model.solve()
 
 print("Status:", LpStatus[model.status])
 print("Value:", model.objective.value())
